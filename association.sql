@@ -24,7 +24,7 @@ DROP DATABASE association;
 -- Name: association; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE association WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'ru_RU.UTF-8' LC_CTYPE = 'ru_RU.UTF-8';
+CREATE DATABASE association ;
 
 
 ALTER DATABASE association OWNER TO postgres;
