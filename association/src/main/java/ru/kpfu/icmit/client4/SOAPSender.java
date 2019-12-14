@@ -1,6 +1,7 @@
 package ru.kpfu.icmit.client4;
 
 import ru.kpfu.icmit.association.model.Nomenclature;
+import ru.kpfu.icmit.association.model.NomenclatureList;
 import ru.kpfu.icmit.association.model.soap.Envelope;
 import ru.kpfu.icmit.association.model.soap.XmlList;
 
@@ -24,8 +25,8 @@ public class SOAPSender {
 
         try {
 
-            //URL url = new URL("http://185.20.227.163:8080/server4/addnomenclature");
-            URL url = new URL("http://localhost:8080/server4/addnomenclature");
+            //URL url = new URL("http://185.20.227.163:8080/association/addnomenclature");
+            URL url = new URL("http://localhost:8080/association/addnomenclature");
 
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
@@ -69,13 +70,16 @@ public class SOAPSender {
 
         try {
 
-            URL url = new URL("http://185.20.227.163:8080/server4/nomenclature/getAll");
-            //URL url = new URL("http://localhost:8080/server4/nomenclature/getAll");
+            //URL url = new URL("http://185.20.227.163:8080/association/getnomenclature");
+            URL url = new URL("http://localhost:8080/association/getnomenclature");
 
-            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            connection.setRequestMethod("GET");
-
+            connection.setRequestMethod("POST");
+            connection.setDoOutput(true);
+            try (OutputStream os = connection.getOutputStream()) {
+                os.write(("datefrom=2019-01-01T00:00:00.001+03:00").getBytes("UTF-8"));
+            }
 
             int rcode = connection.getResponseCode();
             System.out.println(rcode);
@@ -95,8 +99,8 @@ public class SOAPSender {
                     Unmarshaller un = jaxbContext.createUnmarshaller();
 
                     Envelope envelope = (Envelope) un.unmarshal(new ByteArrayInputStream(env.getBytes(Charset.forName("UTF-8"))));
-                    XmlList<Nomenclature> xmlList = (XmlList<Nomenclature>) envelope.getBody().getContent();
-                    return xmlList.getItems();
+                    NomenclatureList xmlList = (NomenclatureList) envelope.getBody().getContent();
+                    return xmlList.getNomenclatureList();
                 } catch (JAXBException e) {
                     e.printStackTrace();
                 }

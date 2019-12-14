@@ -42,7 +42,7 @@ public class EnvelopeController {
 
     @RequestMapping(value = "/getnomenclature", method = RequestMethod.POST)
     @ResponseBody
-    public Envelope addNomenclature(@RequestParam(name = "datefrom") String datefrom) {
+    public Envelope addNomenclature(@RequestParam(name = "") String datefrom) {
 
         Date date = null;
         try {

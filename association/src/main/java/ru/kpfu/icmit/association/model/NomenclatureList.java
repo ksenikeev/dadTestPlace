@@ -16,7 +16,7 @@ public class NomenclatureList extends Content {
     public NomenclatureList() {
     }
 
-    @XmlElementWrapper(name = "nomenclatures")
+    //@XmlElementWrapper(name = "nomenclatures")
     @XmlElement(name = "nomenclature")
     public List<Nomenclature> getNomenclatureList() {
         return nomenclatureList;

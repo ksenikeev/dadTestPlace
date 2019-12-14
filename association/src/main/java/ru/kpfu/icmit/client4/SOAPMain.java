@@ -18,9 +18,11 @@ public class SOAPMain {
 
         createEnveope();
 
-        //Envelope envelope = readEnvelope();
-        //System.out.println(envelope);
+        Envelope envelope = readEnvelope();
+        System.out.println(envelope);
         SOAPSender sender = new SOAPSender();
+
+        sender.sendNomenclature(new File("envelope.xml"));
 
         List<Nomenclature> lst = sender.getNomenclatures();
         lst.forEach(System.out::println);
@@ -34,7 +36,7 @@ public class SOAPMain {
         envelope.setHeader(header);
         envelope.setBody(body);
 
-        Nomenclature nomenclature = new Nomenclature("Ж/Д вагон", null, null);
+        Nomenclature nomenclature = new Nomenclature("Стул офисный", null, null);
 
         body.setContent(nomenclature);
 
