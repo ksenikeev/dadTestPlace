@@ -1,4 +1,4 @@
-package ru.kpfu.icmit.server4.model.soap;
+package ru.kpfu.icmit.manufacture.model.soap;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

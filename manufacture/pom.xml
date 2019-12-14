@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.kpfu.icmit.testing</groupId>
-    <artifactId>server4</artifactId>
+    <artifactId>manufacture</artifactId>
     <name>server4</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -84,7 +84,7 @@
     </dependencies>
 
     <build>
-        <finalName>server4</finalName>
+        <finalName>manufacture</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>

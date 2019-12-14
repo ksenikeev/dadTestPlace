@@ -1,4 +1,4 @@
-package ru.kpfu.icmit.server4.config;
+package ru.kpfu.icmit.manufacture.config;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.jpa.HibernatePersistenceProvider;
@@ -17,20 +17,20 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("ru.kpfu.icmit.server4")
-//@EntityScan("ru.kpfu.icmit.server4.model")
+@ComponentScan("ru.kpfu.icmit.manufacture")
+//@EntityScan("ru.kpfu.icmit.manufacture.model")
 @PropertySource("classpath:db.properties")
-@EnableJpaRepositories("ru.kpfu.icmit.server4.repository")
+@EnableJpaRepositories("ru.kpfu.icmit.manufacture.repository")
 public class JPAConfig {
 
-    private static final String PROP_DATABASE_DRIVER = "db.driver";
-    private static final String PROP_DATABASE_PASSWORD = "db.password";
-    private static final String PROP_DATABASE_URL = "db.url";
-    private static final String PROP_DATABASE_USERNAME = "db.username";
-    private static final String PROP_HIBERNATE_DIALECT = "db.hibernate.dialect";
-    private static final String PROP_HIBERNATE_SHOW_SQL = "db.hibernate.show_sql";
-    private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "db.entitymanager.packages.to.scan";
-    private static final String PROP_HIBERNATE_HBM2DDL_AUTO = "db.hibernate.hbm2ddl.auto";
+    private static final String PROP_DATABASE_DRIVER = "driver";
+    private static final String PROP_DATABASE_PASSWORD = "password";
+    private static final String PROP_DATABASE_URL = "url";
+    private static final String PROP_DATABASE_USERNAME = "username";
+    private static final String PROP_HIBERNATE_DIALECT = "hibernate.dialect";
+    private static final String PROP_HIBERNATE_SHOW_SQL = "hibernate.show_sql";
+    private static final String PROP_ENTITYMANAGER_PACKAGES_TO_SCAN = "entitymanager.packages.to.scan";
+    private static final String PROP_HIBERNATE_HBM2DDL_AUTO = "hibernate.hbm2ddl.auto";
 
     @Autowired
     private Environment env;

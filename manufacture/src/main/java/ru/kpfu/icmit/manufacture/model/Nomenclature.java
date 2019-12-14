@@ -1,7 +1,7 @@
-package ru.kpfu.icmit.server4.model;
+package ru.kpfu.icmit.manufacture.model;
 
 import org.hibernate.annotations.Type;
-import ru.kpfu.icmit.server4.model.soap.Content;
+import ru.kpfu.icmit.manufacture.model.soap.Content;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;

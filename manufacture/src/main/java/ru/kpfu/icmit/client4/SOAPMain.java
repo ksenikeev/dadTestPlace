@@ -1,9 +1,9 @@
 package ru.kpfu.icmit.client4;
 
-import ru.kpfu.icmit.server4.model.Nomenclature;
-import ru.kpfu.icmit.server4.model.soap.Body;
-import ru.kpfu.icmit.server4.model.soap.Envelope;
-import ru.kpfu.icmit.server4.model.soap.Header;
+import ru.kpfu.icmit.manufacture.model.Nomenclature;
+import ru.kpfu.icmit.manufacture.model.soap.Body;
+import ru.kpfu.icmit.manufacture.model.soap.Envelope;
+import ru.kpfu.icmit.manufacture.model.soap.Header;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

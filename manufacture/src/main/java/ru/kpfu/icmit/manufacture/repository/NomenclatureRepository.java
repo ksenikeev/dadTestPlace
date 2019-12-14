@@ -1,10 +1,10 @@
-package ru.kpfu.icmit.server4.repository;
+package ru.kpfu.icmit.manufacture.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kpfu.icmit.server4.model.Nomenclature;
+import ru.kpfu.icmit.manufacture.model.Nomenclature;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;

@@ -1,6 +1,6 @@
-package ru.kpfu.icmit.server4.model;
+package ru.kpfu.icmit.manufacture.model;
 
-import ru.kpfu.icmit.server4.model.soap.Content;
+import ru.kpfu.icmit.manufacture.model.soap.Content;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;

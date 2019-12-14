@@ -1,13 +1,13 @@
-package ru.kpfu.icmit.server4.controller;
+package ru.kpfu.icmit.manufacture.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.kpfu.icmit.server4.model.Nomenclature;
-import ru.kpfu.icmit.server4.model.NomenclatureList;
-import ru.kpfu.icmit.server4.model.soap.Body;
-import ru.kpfu.icmit.server4.model.soap.Envelope;
-import ru.kpfu.icmit.server4.service.NomenclatureService;
+import ru.kpfu.icmit.manufacture.model.Nomenclature;
+import ru.kpfu.icmit.manufacture.model.NomenclatureList;
+import ru.kpfu.icmit.manufacture.model.soap.Body;
+import ru.kpfu.icmit.manufacture.model.soap.Envelope;
+import ru.kpfu.icmit.manufacture.service.NomenclatureService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

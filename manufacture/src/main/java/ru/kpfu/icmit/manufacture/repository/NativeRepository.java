@@ -1,7 +1,7 @@
-package ru.kpfu.icmit.server4.repository;
+package ru.kpfu.icmit.manufacture.repository;
 
 import org.springframework.stereotype.Component;
-import ru.kpfu.icmit.server4.model.Nomenclature;
+import ru.kpfu.icmit.manufacture.model.Nomenclature;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;

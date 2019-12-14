@@ -1,4 +1,4 @@
-package ru.kpfu.icmit.server4.model.soap;
+package ru.kpfu.icmit.manufacture.model.soap;
 
 public class Header {
     String role = "";

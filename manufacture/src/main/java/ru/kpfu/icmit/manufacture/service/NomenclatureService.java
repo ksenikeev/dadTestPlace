@@ -1,10 +1,10 @@
-package ru.kpfu.icmit.server4.service;
+package ru.kpfu.icmit.manufacture.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kpfu.icmit.server4.model.Nomenclature;
-import ru.kpfu.icmit.server4.repository.NativeRepository;
-import ru.kpfu.icmit.server4.repository.NomenclatureRepository;
+import ru.kpfu.icmit.manufacture.model.Nomenclature;
+import ru.kpfu.icmit.manufacture.repository.NativeRepository;
+import ru.kpfu.icmit.manufacture.repository.NomenclatureRepository;
 import java.util.Date;
 import java.util.List;
 

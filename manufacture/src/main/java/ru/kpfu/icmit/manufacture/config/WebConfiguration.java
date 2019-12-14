@@ -1,4 +1,4 @@
-package ru.kpfu.icmit.server4.config;
+package ru.kpfu.icmit.manufacture.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

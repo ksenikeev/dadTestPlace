@@ -1,4 +1,4 @@
-package ru.kpfu.icmit.server4.servlet;
+package ru.kpfu.icmit.manufacture.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
