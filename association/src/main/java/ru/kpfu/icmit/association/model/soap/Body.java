@@ -13,8 +13,8 @@ public class Body {
             @XmlElement(name = "nomenclatures", type = NomenclatureList.class),
             @XmlElement(name = "items", type = XmlList.class),
             @XmlElement(name = "contract", type = Contract.class),
-           @XmlElement(name = "offer", type = Offer.class),
-            @XmlElement(name = "organization", type = Organization.class)    })
+            @XmlElement(name = "offer", type = Offer.class),
+            @XmlElement(name = "organization", type = Organization.class)})
     public Content getContent() {
         return content;
     }

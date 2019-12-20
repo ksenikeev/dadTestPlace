@@ -3,8 +3,6 @@ package ru.kpfu.icmit.client4;
 import ru.kpfu.icmit.association.model.Nomenclature;
 import ru.kpfu.icmit.association.model.NomenclatureList;
 import ru.kpfu.icmit.association.model.soap.Envelope;
-import ru.kpfu.icmit.association.model.soap.XmlList;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -17,16 +15,14 @@ import java.util.List;
 public class SOAPSender {
 
     /**
-     * Пример отправки XML файла с данными по новой номенклатуре на сервер центральной площадки
+     * Пример отправки XML файла с данными конверта
      * @param file
      */
-    public void sendNomenclature(File file) {
-
+    public void sendFile(File file, String resource) {
 
         try {
-
-            //URL url = new URL("http://185.20.227.163:8080/association/addnomenclature");
-            URL url = new URL("http://localhost:8080/association/addnomenclature");
+            //URL url = new URL("http://185.20.227.163:8080/association/" + resource);
+            URL url = new URL("http://localhost:8080/association/" + resource);
 
             HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 
@@ -69,7 +65,6 @@ public class SOAPSender {
     public List<Nomenclature> getNomenclatures() {
 
         try {
-
             //URL url = new URL("http://185.20.227.163:8080/association/getnomenclature");
             URL url = new URL("http://localhost:8080/association/getnomenclature");
 
@@ -105,7 +100,6 @@ public class SOAPSender {
                     e.printStackTrace();
                 }
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }

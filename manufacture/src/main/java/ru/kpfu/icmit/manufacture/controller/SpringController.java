@@ -61,7 +61,7 @@ public class SpringController {
         return "/dict/addnomenclature";
     }
 
-    @RequestMapping(value = "/ы", method = RequestMethod.POST)
+    @RequestMapping(value = "/addnewnom", method = RequestMethod.POST)
     public String addNewNom(
             @ModelAttribute("model") ModelMap model,
             @ModelAttribute Nomenclature body

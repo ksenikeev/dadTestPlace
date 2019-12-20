@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.icmit.association.model.Nomenclature;
 import ru.kpfu.icmit.association.model.NomenclatureList;
+import ru.kpfu.icmit.association.model.Organization;
 import ru.kpfu.icmit.association.model.soap.Body;
 import ru.kpfu.icmit.association.model.soap.Envelope;
+import ru.kpfu.icmit.association.repository.OrganizationRepository;
 import ru.kpfu.icmit.association.service.NomenclatureService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +20,9 @@ public class EnvelopeController {
 
     @Autowired
     private NomenclatureService nomenclatureService;
+
+    @Autowired
+    private OrganizationRepository organizationRepository;
 
     @RequestMapping(value = "/addnomenclature", method = RequestMethod.POST)
     @ResponseBody
@@ -66,4 +71,20 @@ public class EnvelopeController {
         return envelope;
     }
 
+    @RequestMapping(value = "/addorganization", method = RequestMethod.POST)
+    @ResponseBody
+    public void addOrganization(@RequestBody Envelope envelope) {
+
+        System.out.println("envelope: " + envelope);
+
+        if (envelope != null) {
+            Organization organization = (Organization) envelope.getBody().getContent();
+
+            Organization tmp = organizationRepository.findByInn(organization.getInn());
+
+            if (tmp == null) {
+                organizationRepository.save(organization);
+            }
+        }
+    }
 }
