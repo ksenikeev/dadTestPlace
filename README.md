@@ -13,11 +13,12 @@
 
 Запрос на добавление организации:
 ==============================
-`POST` на /addorganization
+`POST` на `/addorganization`
 <br/>
-Content-Type: application/xml
+`Content-Type: application/xml`
 <br/>
 
+<![CDATA[
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <envelope>
     <body>
@@ -32,4 +33,6 @@ Content-Type: application/xml
     </body>
     <header/>
 </envelope>
+
+]]>
 
