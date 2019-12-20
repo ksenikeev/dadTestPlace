@@ -18,21 +18,21 @@
 `Content-Type: application/xml`
 <br/>
 
-<![CDATA[
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<envelope>
-    <body>
-        <organization>
-            <adressOfOrganization>г. Казань, ул. Университетская, д. 35</adressOfOrganization>
-            <inn>1600000001</inn>
-            <kpp>1601001</kpp>
-            <ogrn>1231231434351</ogrn>
-            <nameOfOrganization>Производитель 1</nameOfOrganization>
-            <uid>b5f5521e-bdbf-4a27-8e4b-d8de0c57127b</uid>
-        </organization>
-    </body>
-    <header/>
-</envelope>
 
-]]>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+&lt;envelope&gt;
+    &lt;body&gt;
+        &lt;organization&gt;
+            &lt;adressOfOrganization&gt;г. Казань, ул. Университетская, д. 35&lt;/adressOfOrganization&gt;
+            &lt;inn&gt;1600000001&lt;/inn&gt;
+            &lt;kpp&gt;1601001&lt;/kpp&gt;
+            &lt;ogrn&gt;1231231434351&lt;/ogrn&gt;
+            &lt;nameOfOrganization&gt;Производитель 1&lt;/nameOfOrganization&gt;
+            &lt;uid&gt;b5f5521e-bdbf-4a27-8e4b-d8de0c57127b&lt;/uid&gt;
+        &lt;/organization&gt;
+    &lt;/body&gt;
+    &lt;header/&gt;
+&lt;/envelope&gt;
+
+
 
