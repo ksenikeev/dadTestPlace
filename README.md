@@ -34,5 +34,28 @@
 &nbsp;&nbsp;    &lt;header/&gt;<br/>
 &lt;/envelope&gt;<br/>
 
+Запрос на добавление номенклатуры:
+==============================
+`POST` на `/nomenclature/add`
+<br/>
+
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;envelope&gt;
+    &lt;body&gt;
+        &lt;nomenclature&gt;
+            &lt;productName&gt;Стул офисный&lt;/productName&gt;
+            &lt;uid&gt;9f7d5cf3-e139-4ba5-a60d-8eae58c076e1&lt;/uid&gt;
+        &lt;/nomenclature&gt;
+    &lt;/body&gt;
+    &lt;header/&gt;
+&lt;/envelope&gt;
+
+Запрос на получение списка номенклатуры, измененной после определенной даты:
+==============================
+`POST` на `/nomenclature/get`
+<br/>
+параметр запроса `datefrom` со значение даты и времени в формате `yyyy-MM-dd'T'HH:mm:ss.SXXX` (URL encoded)
+<br/>
+Например, `2019-01-01T00:00:01.1+03:00`
 
 
