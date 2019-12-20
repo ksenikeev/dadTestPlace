@@ -16,15 +16,13 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-public class EnvelopeController {
+@RequestMapping(value = "/nomenclature")
+public class NomenclatureController {
 
     @Autowired
     private NomenclatureService nomenclatureService;
 
-    @Autowired
-    private OrganizationRepository organizationRepository;
-
-    @RequestMapping(value = "/addnomenclature", method = RequestMethod.POST)
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
     public Envelope addNomenclature(@RequestBody Envelope envelope) {
 
@@ -36,7 +34,7 @@ public class EnvelopeController {
             nomenclature.setCreateDate(new Date());
             nomenclature.setModifyDate(new Date());
 
-           nomenclature = nomenclatureService.save(nomenclature);
+            nomenclature = nomenclatureService.save(nomenclature);
 
             nomenclature.setId(nomenclature.getId());
 
@@ -45,9 +43,9 @@ public class EnvelopeController {
         return envelope;
     }
 
-    @RequestMapping(value = "/getnomenclature", method = RequestMethod.POST)
+    @RequestMapping(value = "/get", method = RequestMethod.POST)
     @ResponseBody
-    public Envelope addNomenclature(@RequestParam(name = "datefrom") String datefrom) {
+    public Envelope getNomenclature(@RequestParam(name = "datefrom") String datefrom) {
 
         Date date = null;
         try {
@@ -69,22 +67,5 @@ public class EnvelopeController {
         envelope.setBody(body);
 
         return envelope;
-    }
-
-    @RequestMapping(value = "/addorganization", method = RequestMethod.POST)
-    @ResponseBody
-    public void addOrganization(@RequestBody Envelope envelope) {
-
-        System.out.println("envelope: " + envelope);
-
-        if (envelope != null) {
-            Organization organization = (Organization) envelope.getBody().getContent();
-
-            Organization tmp = organizationRepository.findByInn(organization.getInn());
-
-            if (tmp == null) {
-                organizationRepository.save(organization);
-            }
-        }
     }
 }

@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * Предложение товара/ресурса
+ */
 @Entity
 public class Offer extends Content {
 

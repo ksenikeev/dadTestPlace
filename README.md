@@ -13,7 +13,7 @@
 
 Запрос на добавление организации:
 ==============================
-`POST` на `/addorganization`
+`POST` на `/organization/add`
 <br/>
 `Content-Type: application/xml`
 <br/>

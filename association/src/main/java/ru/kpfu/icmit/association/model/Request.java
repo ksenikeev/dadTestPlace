@@ -7,6 +7,9 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ *   Запрос на приобретение товаров/ресурсов
+ */
 @Entity
 @Table(name = "request")
 public class Request extends Content {

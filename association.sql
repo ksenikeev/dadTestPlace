@@ -5,31 +5,7 @@
 -- Dumped from database version 9.6.1
 -- Dumped by pg_dump version 12.0
 
--- Started on 2019-12-14 10:34:34 MSK
-
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
-DROP DATABASE association;
---
--- TOC entry 2441 (class 1262 OID 1639581)
--- Name: association; Type: DATABASE; Schema: -; Owner: postgres
---
-
-CREATE DATABASE association ;
-
-
-ALTER DATABASE association OWNER TO postgres;
-
-\connect association
+-- Started on 2019-12-20 10:50:43 MSK
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -237,6 +213,8 @@ INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (
 INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (5, '2019-12-14 10:01:10.843', '2019-12-14 10:01:10.843', 'Стул офисный', '9f7d5cf3-e139-4ba5-a60d-8eae58c076e1');
 INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (1, '2019-09-17 09:45:20.019', '2019-09-17 09:45:20.019', 'Ж/Д вагон', '5a722f88-a1a8-4109-b252-acdcbd497d69');
 INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (2, '2019-10-11 09:55:48.251', '2019-10-11 09:55:48.251', 'Станок фрейзерный ЧПУ', '7aeb398b-3a3c-49c9-bed1-279474cac788');
+INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (6, '2019-12-14 13:00:08.906', '2019-12-14 13:00:08.906', 'Компьютер', '0e99c44d-dcf3-44f7-9f19-c4534d582dff');
+INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (7, '2019-12-14 13:28:03.211', '2019-12-14 13:28:03.211', 'Автомобиль', 'b43f44ba-e005-480d-bf7d-306a69c39f10');
 
 
 --
@@ -254,6 +232,7 @@ INSERT INTO public.nomenclature (id, createdate, modifydate, name, uid) VALUES (
 --
 
 INSERT INTO public.organization (id, adressoforganization, inn, kpp, nameoforganization, ogrn, uid) VALUES (1, 'г. Казань, ул. Университетская, д. 35', '111111111111', '1111111', 'Мануфактура 1', '111111111111111', '12b5f899-3c90-4c80-a52c-68bf3f9db1aa');
+INSERT INTO public.organization (id, adressoforganization, inn, kpp, nameoforganization, ogrn, uid) VALUES (3, 'г. Казань, ул. Университетская, д. 35', '1600000001', '1601001', 'Производитель 1', NULL, '51e57ba7-fad2-4967-ad71-aa9294a34233');
 
 
 --
@@ -265,7 +244,7 @@ INSERT INTO public.organization (id, adressoforganization, inn, kpp, nameoforgan
 
 
 --
--- TOC entry 2442 (class 0 OID 0)
+-- TOC entry 2441 (class 0 OID 0)
 -- Dependencies: 190
 -- Name: contract_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -274,7 +253,7 @@ SELECT pg_catalog.setval('public.contract_seq', 1, false);
 
 
 --
--- TOC entry 2443 (class 0 OID 0)
+-- TOC entry 2442 (class 0 OID 0)
 -- Dependencies: 191
 -- Name: contractidgenerator; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -283,25 +262,25 @@ SELECT pg_catalog.setval('public.contractidgenerator', 1, false);
 
 
 --
--- TOC entry 2444 (class 0 OID 0)
+-- TOC entry 2443 (class 0 OID 0)
 -- Dependencies: 192
 -- Name: nomenclature_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.nomenclature_seq', 5, true);
+SELECT pg_catalog.setval('public.nomenclature_seq', 7, true);
 
 
 --
--- TOC entry 2445 (class 0 OID 0)
+-- TOC entry 2444 (class 0 OID 0)
 -- Dependencies: 193
 -- Name: organization_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.organization_seq', 2, true);
+SELECT pg_catalog.setval('public.organization_seq', 3, true);
 
 
 --
--- TOC entry 2446 (class 0 OID 0)
+-- TOC entry 2445 (class 0 OID 0)
 -- Dependencies: 194
 -- Name: request_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -417,7 +396,7 @@ ALTER TABLE ONLY public.contract
     ADD CONSTRAINT fknhfw8w3mu7s34rhiqx00bvfxp FOREIGN KEY (nomenclature_id) REFERENCES public.nomenclature(id);
 
 
--- Completed on 2019-12-14 10:34:34 MSK
+-- Completed on 2019-12-20 10:50:43 MSK
 
 --
 -- PostgreSQL database dump complete

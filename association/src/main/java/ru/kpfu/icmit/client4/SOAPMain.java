@@ -27,7 +27,7 @@ public class SOAPMain {
 
         createEnvelopeOrganization();
 
-        sender.sendFile(new File("organization.xml"), "addorganization");
+        sender.sendFile(new File("organization.xml"), "organization/add");
 
     }
 
@@ -41,8 +41,8 @@ public class SOAPMain {
 
         Organization organization = new Organization();
         organization.setUid(UUID.randomUUID());
-        organization.setNameOfOrganization("Производитель 1");
-        organization.setInn("1600000001");
+        organization.setNameOfOrganization("Производитель 2");
+        organization.setInn("1600000002");
         organization.setKpp("1601001");
         organization.setAdressOfOrganization("г. Казань, ул. Университетская, д. 35");
         body.setContent(organization);
