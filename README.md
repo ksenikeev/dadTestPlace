@@ -178,8 +178,23 @@
 				return productName;<br/>
 			}<br/>
 		</td>
-		<td></td>
-		<td></td>
+		<td>			
+		&lt;nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;...<br/>
+&nbsp;&nbsp;&nbsp;&lt;productName&gt;Уголь антрацит&lt;/productName&gt;<br/>
+&nbsp;&nbsp;&nbsp;...<br/>
+		&lt;/nomenclature&gt;<br/>
+		</td>
+		<td>
+				class Nomenclature { <br/>
+			...<br/>
+			String nomenclatureName;<br/>
+			...<br/>
+			`@XmlElement(value="productName")`<br/>
+			String getNomenclatureName() {<br/>
+				return nomenclatureName;<br/>
+			}<br/>
+		</td>
 	</tr>
 	<tr></tr>
 	<tr></tr>
