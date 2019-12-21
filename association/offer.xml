@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <envelope>
     <body>
-        <request>
-            <countOfProduct>100.0</countOfProduct>
+        <offer>
+            <countOfProduct>1000.0</countOfProduct>
             <dateOfPerformance>2020-01-12T00:00:00+03:00</dateOfPerformance>
             <nomenclature>
                 <uid>058b8777-1bc1-4b9c-8c95-34f0f3bd2623</uid>
@@ -12,9 +12,9 @@
                 <kpp>1601001</kpp>
             </organization>
             <priceOfProduct>1250.0</priceOfProduct>
-            <uid>68b4d187-63b0-436c-9bec-f08a45337f6a</uid>
+            <uid>dec476d1-b2f7-481b-beb2-d0997313bf20</uid>
             <unitCode>piece</unitCode>
-        </request>
+        </offer>
     </body>
     <header/>
 </envelope>

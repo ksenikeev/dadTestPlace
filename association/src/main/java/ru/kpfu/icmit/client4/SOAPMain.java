@@ -1,6 +1,7 @@
 package ru.kpfu.icmit.client4;
 
 import ru.kpfu.icmit.association.model.Nomenclature;
+import ru.kpfu.icmit.association.model.Offer;
 import ru.kpfu.icmit.association.model.Organization;
 import ru.kpfu.icmit.association.model.Request;
 import ru.kpfu.icmit.association.model.soap.Body;
@@ -26,6 +27,9 @@ public class SOAPMain {
 
         createEnvelopeRequest();
         sender.sendFile(new File("request.xml"), "request/add");
+
+        createEnvelopeOffer();
+        sender.sendFile(new File("offer.xml"), "offer/add");
 
         createEnveopeNomenclature("Уголь антрацит");
         sender.sendFile(new File("nomenclature.xml"), "nomenclature/add");
@@ -97,6 +101,45 @@ public class SOAPMain {
 
         body.setContent(request);
         saveEnvelopeToFile(envelope, "request.xml");
+    }
+
+    /**
+     * Создаем конверт для отправки запроса на товары/услуги
+     */
+    public static void createEnvelopeOffer() {
+        Envelope envelope = new Envelope();
+        Header header = new Header();
+        Body body = new Body();
+        envelope.setHeader(header);
+        envelope.setBody(body);
+
+        Organization organization = new Organization();
+        organization.setInn("1600000002");
+        organization.setKpp("1601001");
+
+        Offer offer = new Offer();
+        offer.setUid(UUID.randomUUID());
+        offer.setOrganization(organization);
+
+        Nomenclature nomenclature = new Nomenclature();
+        nomenclature.setUid(UUID.fromString("058b8777-1bc1-4b9c-8c95-34f0f3bd2623"));
+
+        offer.setNomenclature(nomenclature);
+
+        try {
+            offer.setDateOfPerformance(new SimpleDateFormat("dd.MM.yyyy").parse("12.01.2020"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        offer.setCountOfProduct(1000f);
+
+        offer.setPriceOfProduct(Double.valueOf(1250));
+
+        offer.setUnitCode("piece");
+
+        body.setContent(offer);
+        saveEnvelopeToFile(envelope, "offer.xml");
     }
 
     public static void createEnveopeNomenclature(String nomenclatureName) {

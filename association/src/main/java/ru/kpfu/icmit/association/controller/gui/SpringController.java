@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.icmit.association.model.Nomenclature;
+import ru.kpfu.icmit.association.model.Offer;
 import ru.kpfu.icmit.association.model.Organization;
 import ru.kpfu.icmit.association.model.Request;
 import ru.kpfu.icmit.association.service.NomenclatureService;
+import ru.kpfu.icmit.association.service.OfferService;
 import ru.kpfu.icmit.association.service.OrganizationService;
 import ru.kpfu.icmit.association.service.RequestService;
 
@@ -29,6 +31,9 @@ public class SpringController {
 
     @Autowired
     private RequestService requestService;
+
+    @Autowired
+    private OfferService offerService;
 
     @RequestMapping(value = "/nomenclature")
     public String getNomenclatureList(@ModelAttribute("model") ModelMap model) {
@@ -58,5 +63,15 @@ public class SpringController {
         model.addAttribute("requests", requests);
 
         return "/request";
+    }
+
+    @RequestMapping(value = "/offer")
+    public String getOfferList(@ModelAttribute("model") ModelMap model)
+    {
+        List<Offer> offers = offerService.findAll();
+
+        model.addAttribute("offers", offers);
+
+        return "/offer";
     }
 }

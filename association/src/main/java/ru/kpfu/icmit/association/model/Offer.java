@@ -13,7 +13,7 @@ import java.util.UUID;
 public class Offer extends Content {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contractIdGenerator")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "offerIdGenerator")
     @SequenceGenerator(name = "offerIdGenerator", sequenceName = "offer_seq", allocationSize=1)
     Long id;
 
@@ -23,9 +23,9 @@ public class Offer extends Content {
     @ManyToOne
     private Nomenclature nomenclature;
 
-    private double priceOfProduct;
+    private Double priceOfProduct;
 
-    private int countOfProduct;
+    private Float countOfProduct;
 
     private String unitCode;
 
@@ -65,19 +65,19 @@ public class Offer extends Content {
         this.nomenclature = nomenclature;
     }
 
-    public double getPriceOfProduct() {
+    public Double getPriceOfProduct() {
         return priceOfProduct;
     }
 
-    public void setPriceOfProduct(double priceOfProduct) {
+    public void setPriceOfProduct(Double priceOfProduct) {
         this.priceOfProduct = priceOfProduct;
     }
 
-    public int getCountOfProduct() {
+    public Float getCountOfProduct() {
         return countOfProduct;
     }
 
-    public void setCountOfProduct(int countOfProduct) {
+    public void setCountOfProduct(Float countOfProduct) {
         this.countOfProduct = countOfProduct;
     }
 

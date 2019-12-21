@@ -10,11 +10,13 @@ public class Body {
 
     @XmlElements({
             @XmlElement(name = "request", type = Request.class),
+            @XmlElement(name = "requests", type = RequestList.class),
             @XmlElement(name = "nomenclature", type = Nomenclature.class),
             @XmlElement(name = "nomenclatures", type = NomenclatureList.class),
             @XmlElement(name = "items", type = XmlList.class),
             @XmlElement(name = "contract", type = Contract.class),
             @XmlElement(name = "offer", type = Offer.class),
+            @XmlElement(name = "offers", type = OfferList.class),
             @XmlElement(name = "organization", type = Organization.class)})
     public Content getContent() {
         return content;

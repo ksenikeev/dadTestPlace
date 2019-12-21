@@ -13,6 +13,7 @@
 http://localhost:8080/association/gui/nomenclature<br/>
 http://localhost:8080/association/gui/organization<br/>
 http://localhost:8080/association/gui/request<br/>
+http://localhost:8080/association/gui/offer<br/>
 
 
 Структура данных
