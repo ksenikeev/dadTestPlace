@@ -17,7 +17,7 @@
 <br/>
 `Content-Type: application/xml`
 <br/>
-
+в теле POST-запроса отправляем XML документ<br/>
 
 &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br/>
 &lt;envelope&gt;<br/>
@@ -38,7 +38,7 @@
 ==============================
 `POST` на `/nomenclature/add`
 <br/>
-
+в теле POST-запроса отправляем XML документ<br/>
 &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br/>
 &lt;envelope&gt;<br/>
 &nbsp;    &lt;body&gt;<br/>
@@ -110,6 +110,7 @@
 ==============================
 `POST` на `/request/add`
 <br/>
+в теле POST-запроса отправляем XML документ<br/>
 &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;envelope&gt;<br/>
 &nbsp;    &lt;body&gt;<br/>
 &nbsp;&nbsp;        &lt;request&gt;<br/>
@@ -122,9 +123,67 @@
 &nbsp;&nbsp;&nbsp;&nbsp;               &lt;kpp&gt;1601001&lt;/kpp&gt;<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;            &lt;/organization&gt;<br/>
 &nbsp;&nbsp;&nbsp;            &lt;priceOfProduct&gt;1250.0&lt;/priceOfProduct&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;countOfProduct&gt;100.0&lt;/countOfProduct&gt;<br/>
 &nbsp;&nbsp;&nbsp;            &lt;uid&gt;46c6074b-b93f-467f-af39-26ef27825020&lt;/uid&gt;<br/>
 &nbsp;&nbsp;&nbsp;            &lt;unitCode&gt;piece&lt;/unitCode&gt;<br/>
 &nbsp;&nbsp;        &lt;/request&gt;<br/>
 &nbsp;    &lt;/body&gt;<br/>
 &nbsp;    &lt;header/&gt;<br/>
 &lt;/envelope&gt;<br/>
+
+Отправка на центральную площадку предложения товаров и услуг товаров/услуг
+==============================
+`POST` на `/offer/add`
+<br/>
+в теле POST-запроса отправляем XML документ<br/>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;envelope&gt;<br/>
+&nbsp;    &lt;body&gt;<br/>
+&nbsp;&nbsp;        &lt;offer&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;dateOfPerformance&gt;2020-01-02T00:00:00+03:00&lt;/dateOfPerformance&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;                &lt;uid&gt;058b8777-1bc1-4b9c-8c95-34f0f3bd2623&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;/nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;organization&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;                &lt;inn&gt;1600000002&lt;/inn&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;               &lt;kpp&gt;1601001&lt;/kpp&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;            &lt;/organization&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;priceOfProduct&gt;1270.0&lt;/priceOfProduct&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;countOfProduct&gt;1000.0&lt;/countOfProduct&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;uid&gt;46c6074b-b93f-467f-af39-26ef27825020&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;unitCode&gt;piece&lt;/unitCode&gt;<br/>
+&nbsp;&nbsp;        &lt;/offer&gt;<br/>
+&nbsp;    &lt;/body&gt;<br/>
+&nbsp;    &lt;header/&gt;<br/>
+&lt;/envelope&gt;<br/>
+
+
+
+Структура данных
+==============================
+<p>Структура данных отобажена в виде набора классов в пакете `ru.kpfu.icmit.association.model`. Этой структуре соответствуют теги XML документов для обмена информацией.
+<p>В том случае, если ваша модель данных отличается от приведенной, ситуацию можно нормализовать с помощью аннотаций, например:
+<br/>
+<table>
+	<th>Базовая модель</th>
+	<th>XML документ</th>
+	<th>"Своя" модель</th>
+
+	<tr>
+		<td>
+		class Nomenclature { <br/>
+			...<br/>
+			String productName;<br/>
+			...<br/>
+			String getProductName() {<br/>
+				return productName;<br/>
+			}<br/>
+
+		</td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr></tr>
+	<tr></tr>
+
+
+</table>
