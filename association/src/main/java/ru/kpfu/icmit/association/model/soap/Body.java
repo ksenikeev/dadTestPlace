@@ -9,6 +9,7 @@ public class Body {
     private Content content;
 
     @XmlElements({
+            @XmlElement(name = "request", type = Request.class),
             @XmlElement(name = "nomenclature", type = Nomenclature.class),
             @XmlElement(name = "nomenclatures", type = NomenclatureList.class),
             @XmlElement(name = "items", type = XmlList.class),

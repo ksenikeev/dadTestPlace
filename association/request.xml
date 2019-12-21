@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <envelope>
     <body>
-        <nomenclature xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="request">
+        <request>
             <countOfProduct>100.0</countOfProduct>
             <dateOfPerformance>2020-01-12T00:00:00+03:00</dateOfPerformance>
             <nomenclature>
@@ -12,9 +12,9 @@
                 <kpp>1601001</kpp>
             </organization>
             <priceOfProduct>1250.0</priceOfProduct>
-            <uid>46c6074b-b93f-467f-af39-26ef27825020</uid>
+            <uid>471271a8-fea3-48f0-b1a6-c49cd624538f</uid>
             <unitCode>piece</unitCode>
-        </nomenclature>
+        </request>
     </body>
     <header/>
 </envelope>

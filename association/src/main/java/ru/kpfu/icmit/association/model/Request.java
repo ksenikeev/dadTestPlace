@@ -4,6 +4,7 @@ import org.hibernate.annotations.Type;
 import ru.kpfu.icmit.association.model.soap.Content;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;
 import java.util.UUID;
 
