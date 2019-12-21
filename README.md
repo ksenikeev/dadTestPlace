@@ -167,7 +167,7 @@
 	<th>Базовая модель</th>
 	<th>XML документ</th>
 	<th>"Своя" модель</th>
-
+	<tbody>
 	<tr>
 		<td>
 		class Nomenclature { <br/>
@@ -177,13 +177,12 @@
 			String getProductName() {<br/>
 				return productName;<br/>
 			}<br/>
-
 		</td>
 		<td></td>
 		<td></td>
 	</tr>
 	<tr></tr>
 	<tr></tr>
-
+</tbody>
 
 </table>
