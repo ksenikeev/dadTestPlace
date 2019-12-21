@@ -65,8 +65,8 @@ public class SOAPSender {
     public List<Nomenclature> getNomenclatures() {
 
         try {
-            //URL url = new URL("http://185.20.227.163:8080/association/getnomenclature");
-            URL url = new URL("http://localhost:8080/association/getnomenclature");
+            //URL url = new URL("http://185.20.227.163:8080/association/nomenclature/get");
+            URL url = new URL("http://localhost:8080/association/nomenclature/get");
 
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 

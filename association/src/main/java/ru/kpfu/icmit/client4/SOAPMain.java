@@ -11,6 +11,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.net.URLEncoder;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,10 +21,10 @@ public class SOAPMain {
 
         SOAPSender sender = new SOAPSender();
 
-        //createEnveopeNomenclature("Телевизор");
-        //sender.sendFile(new File("nomenclature.xml"), "addnomenclature");
-        //List<Nomenclature> lst = sender.getNomenclatures();
-        //lst.forEach(System.out::println);
+        createEnveopeNomenclature("Уголь антрацит");
+        sender.sendFile(new File("nomenclature.xml"), "nomenclature/add");
+        List<Nomenclature> lst = sender.getNomenclatures();
+        lst.forEach(System.out::println);
 
         createEnvelopeOrganization();
 
