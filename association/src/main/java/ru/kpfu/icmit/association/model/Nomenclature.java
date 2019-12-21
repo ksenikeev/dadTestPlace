@@ -18,7 +18,7 @@ public class Nomenclature extends Content {
     @Type(type="pg-uuid")
     private UUID uid;
 
-    private String name;
+    private String productName;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate;
@@ -29,8 +29,8 @@ public class Nomenclature extends Content {
     public Nomenclature() {
     }
 
-    public Nomenclature(String name, Date createDate, Date modifyDate) {
-        this.name = name;
+    public Nomenclature(String productName, Date createDate, Date modifyDate) {
+        this.productName = productName;
         this.createDate = createDate;
         this.modifyDate = modifyDate;
     }
@@ -43,13 +43,12 @@ public class Nomenclature extends Content {
         this.id = id;
     }
 
-    @XmlElement(name = "productName")
-    public String getName() {
-        return name;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Date getCreateDate() {
@@ -82,7 +81,7 @@ public class Nomenclature extends Content {
     @Override
     public String toString() {
         return "Nomenclature {" +
-                "name='" + name + '\'' +
+                "productName='" + productName + '\'' +
                 ", createDate=" + createDate +
                 ", modifyDate=" + modifyDate +
                 '}';

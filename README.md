@@ -9,6 +9,55 @@
 <br/>
 приложение assotiation доступно по адресу http://185.20.227.163:8080/association
 <br/>
+Для контроля содержимого базы данных центральной площадки доступны веб-страницы:<br/>
+http://localhost:8080/association/gui/nomenclature<br/>
+http://localhost:8080/association/gui/organization<br/>
+http://localhost:8080/association/gui/request<br/>
+
+
+Структура данных
+==============================
+<p>Структура данных отобажена в виде набора классов в пакете ru.kpfu.icmit.association.model. Этой структуре соответствуют теги XML документов для обмена информацией.
+<p>В том случае, если ваша модель данных отличается от приведенной, ситуацию можно нормализовать с помощью аннотаций, например:
+<br/>
+<table>
+	<th>Базовая модель</th>
+	<th>XML документ</th>
+	<th>"Своя" модель</th>
+	<tbody>
+	<tr>
+		<td>
+			class Nomenclature { <br/>
+			...<br/>
+			String productName;<br/>
+			...<br/>
+			String getProductName() {<br/>
+				return productName;<br/>
+			}<br/>
+		</td>
+		<td>			
+			&lt;nomenclature&gt;<br/>
+			&nbsp;&nbsp;&nbsp;...<br/>
+			&nbsp;&nbsp;&nbsp;&lt;productName&gt;Уголь антрацит&lt;/productName&gt;<br/>
+			&nbsp;&nbsp;&nbsp;...<br/>
+			&lt;/nomenclature&gt;<br/>
+		</td>
+		<td>
+			class Nomenclature { <br/>
+			...<br/>
+			String nomenclatureName;<br/>
+			...<br/>
+			<b>@XmlElement(value="productName")</b><br/>
+			String getNomenclatureName() {<br/>
+				return nomenclatureName;<br/>
+			}<br/>
+		</td>
+	</tr>
+	<tr></tr>
+	<tr></tr>
+</tbody>
+
+</table>
 
 
 Запрос на добавление организации:
@@ -157,47 +206,3 @@
 &lt;/envelope&gt;<br/>
 
 
-
-Структура данных
-==============================
-<p>Структура данных отобажена в виде набора классов в пакете `ru.kpfu.icmit.association.model`. Этой структуре соответствуют теги XML документов для обмена информацией.
-<p>В том случае, если ваша модель данных отличается от приведенной, ситуацию можно нормализовать с помощью аннотаций, например:
-<br/>
-<table>
-	<th>Базовая модель</th>
-	<th>XML документ</th>
-	<th>"Своя" модель</th>
-	<tbody>
-	<tr>
-		<td>
-		class Nomenclature { <br/>
-			...<br/>
-			String productName;<br/>
-			...<br/>
-			String getProductName() {<br/>
-				return productName;<br/>
-			}<br/>
-		</td>
-		<td>			
-		&lt;nomenclature&gt;<br/>
-&nbsp;&nbsp;&nbsp;...<br/>
-&nbsp;&nbsp;&nbsp;&lt;productName&gt;Уголь антрацит&lt;/productName&gt;<br/>
-&nbsp;&nbsp;&nbsp;...<br/>
-		&lt;/nomenclature&gt;<br/>
-		</td>
-		<td>
-				class Nomenclature { <br/>
-			...<br/>
-			String nomenclatureName;<br/>
-			...<br/>
-			`@XmlElement(value="productName")`<br/>
-			String getNomenclatureName() {<br/>
-				return nomenclatureName;<br/>
-			}<br/>
-		</td>
-	</tr>
-	<tr></tr>
-	<tr></tr>
-</tbody>
-
-</table>
