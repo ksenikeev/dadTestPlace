@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<envelope>
+    <body>
+        <nomenclature xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="request">
+            <countOfProduct>100.0</countOfProduct>
+            <dateOfPerformance>2020-01-12T00:00:00+03:00</dateOfPerformance>
+            <nomenclature>
+                <uid>058b8777-1bc1-4b9c-8c95-34f0f3bd2623</uid>
+            </nomenclature>
+            <organization>
+                <inn>1600000002</inn>
+                <kpp>1601001</kpp>
+            </organization>
+            <priceOfProduct>1250.0</priceOfProduct>
+            <uid>46c6074b-b93f-467f-af39-26ef27825020</uid>
+            <unitCode>piece</unitCode>
+        </nomenclature>
+    </body>
+    <header/>
+</envelope>
