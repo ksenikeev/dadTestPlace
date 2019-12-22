@@ -15,7 +15,7 @@ public class RequestList extends Content {
     public RequestList() {
     }
 
-    @XmlElement(name = "requests")
+    @XmlElement(name = "request")
     public List<Request> getRequestList() {
         return requestList;
     }

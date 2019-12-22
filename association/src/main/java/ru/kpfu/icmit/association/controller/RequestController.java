@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import ru.kpfu.icmit.association.model.Nomenclature;
-import ru.kpfu.icmit.association.model.Organization;
-import ru.kpfu.icmit.association.model.Request;
+import ru.kpfu.icmit.association.model.*;
+import ru.kpfu.icmit.association.model.soap.Body;
 import ru.kpfu.icmit.association.model.soap.Envelope;
+import ru.kpfu.icmit.association.model.soap.Header;
 import ru.kpfu.icmit.association.repository.NomenclatureRepository;
 import ru.kpfu.icmit.association.repository.OrganizationRepository;
 import ru.kpfu.icmit.association.repository.RequestRepository;
+import java.util.List;
 
 /**
  * Добавление в систему запроса на товары/услуги
@@ -54,4 +55,31 @@ public class RequestController {
             }
         }
     }
+
+    @RequestMapping(value = "/getbynom", method = RequestMethod.POST)
+    @ResponseBody
+    public Envelope getRequestByNomenclatureUID(@RequestBody Envelope envelope) {
+
+        List<Request> lst = null;
+        System.out.println("envelope: " + envelope);
+
+        if (envelope != null) {
+            Nomenclature nomenclature = (Nomenclature) envelope.getBody().getContent();
+
+            lst = requestRepository.findByNomenclatureUid(nomenclature.getUid());
+        }
+
+        RequestList requestList = new RequestList(lst);
+
+        Envelope envelopeResponse = new Envelope();
+        Header header = new Header();
+        Body body = new Body();
+        envelopeResponse.setHeader(header);
+        envelopeResponse.setBody(body);
+
+        body.setContent(requestList);
+
+        return envelopeResponse;
+    }
+
 }

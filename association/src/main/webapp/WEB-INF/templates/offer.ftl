@@ -13,9 +13,10 @@
 </H2>
 
 	<table>
-		<th>UID</th>
+		<th>UID Предложения</th>
 		<th>Наименование организации</th>
 		<th>Номенклатура</th>
+		<th>UID Номенклатуры</th>
 		<th>Количество</th>
 		<tbody>
 		<#list model["offers"] as offer>
@@ -23,6 +24,7 @@
 			<td>${offer.uid}</td>
 			<td>${offer.organization.nameOfOrganization}</td>
 			<td>${offer.nomenclature.productName}</td>
+			<td>${offer.nomenclature.uid}</td>
 			<td>${offer.countOfProduct}</td>
 			</tr>
 		</#list>

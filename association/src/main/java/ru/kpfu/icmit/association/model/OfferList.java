@@ -1,7 +1,6 @@
 package ru.kpfu.icmit.association.model;
 
 import ru.kpfu.icmit.association.model.soap.Content;
-
 import javax.xml.bind.annotation.XmlElement;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class OfferList extends Content {
     public OfferList() {
     }
 
-    @XmlElement(name = "offers")
+    @XmlElement(name = "offer")
     public List<Offer> getOfferList() {
         return offerList;
     }

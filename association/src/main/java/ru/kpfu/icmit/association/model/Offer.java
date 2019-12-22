@@ -120,4 +120,20 @@ public class Offer extends Content {
     public void setUid(UUID uid) {
         this.uid = uid;
     }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "id=" + id +
+                ", organization=" + organization +
+                ", nomenclature=" + nomenclature +
+                ", priceOfProduct=" + priceOfProduct +
+                ", countOfProduct=" + countOfProduct +
+                ", unitCode='" + unitCode + '\'' +
+                ", createDate=" + createDate +
+                ", modifyDate=" + modifyDate +
+                ", dateOfPerformance=" + dateOfPerformance +
+                ", uid=" + uid +
+                '}';
+    }
 }

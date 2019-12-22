@@ -125,4 +125,20 @@ public class Request extends Content {
     public void setDateOfPerformance(Date dateOfPerformance) {
         this.dateOfPerformance = dateOfPerformance;
     }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "id=" + id +
+                ", uid=" + uid +
+                ", nomenclature=" + nomenclature +
+                ", organization=" + organization +
+                ", priceOfProduct=" + priceOfProduct +
+                ", countOfProduct=" + countOfProduct +
+                ", unitCode='" + unitCode + '\'' +
+                ", createDate=" + createDate +
+                ", modifyDate=" + modifyDate +
+                ", dateOfPerformance=" + dateOfPerformance +
+                '}';
+    }
 }

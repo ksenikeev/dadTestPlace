@@ -6,8 +6,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.icmit.association.model.Nomenclature;
 import ru.kpfu.icmit.association.model.Offer;
+import ru.kpfu.icmit.association.model.OfferList;
 import ru.kpfu.icmit.association.model.Organization;
+import ru.kpfu.icmit.association.model.soap.Body;
 import ru.kpfu.icmit.association.model.soap.Envelope;
+import ru.kpfu.icmit.association.model.soap.Header;
 import ru.kpfu.icmit.association.repository.NomenclatureRepository;
 import ru.kpfu.icmit.association.repository.OfferRepository;
 import ru.kpfu.icmit.association.repository.OrganizationRepository;
@@ -53,18 +56,28 @@ public class OfferController {
 
     @RequestMapping(value = "/getbynom", method = RequestMethod.POST)
     @ResponseBody
-    public List<Offer> getOffer(@RequestBody Envelope envelope) {
+    public Envelope getOfferByNomenclatureUID(@RequestBody Envelope envelope) {
 
-        List<Offer> offerList = null;
+        List<Offer> lst = null;
         System.out.println("envelope: " + envelope);
 
         if (envelope != null) {
             Nomenclature nomenclature = (Nomenclature) envelope.getBody().getContent();
 
-            offerList = offerRepository.findByNomenclatureUid(nomenclature.getUid());
-
+            lst = offerRepository.findByNomenclatureUid(nomenclature.getUid());
         }
-        return offerList;
+
+        OfferList offerList = new OfferList(lst);
+
+        Envelope envelopeResponse = new Envelope();
+        Header header = new Header();
+        Body body = new Body();
+        envelopeResponse.setHeader(header);
+        envelopeResponse.setBody(body);
+
+        body.setContent(offerList);
+
+        return envelopeResponse;
     }
 
 }

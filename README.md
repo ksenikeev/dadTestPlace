@@ -14,11 +14,13 @@ http://185.20.227.163:8080/association/gui/nomenclature<br/>
 http://185.20.227.163:8080/association/gui/organization<br/>
 http://185.20.227.163:8080/association/gui/request<br/>
 http://185.20.227.163:8080/association/gui/offer<br/>
+http://185.20.227.163:8080/association/gui/contract<br/>
 
 
 Структура данных
 ==============================
-<p>Структура данных отобажена в виде набора классов в пакете ru.kpfu.icmit.association.model. Этой структуре соответствуют теги XML документов для обмена информацией.
+<p>Структура данных отобажена в виде набора классов в пакете 
+	<a href="https://github.com/ksenikeev/dadTestPlace/tree/master/association/src/main/java/ru/kpfu/icmit/association/model">ru.kpfu.icmit.association.model</a>. Этой структуре соответствуют теги XML документов для обмена информацией.
 <p>В том случае, если ваша модель данных отличается от приведенной, ситуацию можно нормализовать с помощью аннотаций, например:
 <br/>
 <table>
@@ -63,6 +65,7 @@ http://185.20.227.163:8080/association/gui/offer<br/>
 
 Запрос на добавление организации:
 ==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/AddNewOrganizationToRemoteBase.java">Тест запроса</a><br/>
 `POST` на `/organization/add`
 <br/>
 `Content-Type: application/xml`
@@ -160,6 +163,7 @@ http://185.20.227.163:8080/association/gui/offer<br/>
 
 Отправка на центральную площадку запроса на приобретение товаров/услуг
 ==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/AddNewRequestToRemoteBase.java">Тест запроса</a><br/>
 `POST` на `/request/add`
 <br/>
 в теле POST-запроса отправляем XML документ<br/>
@@ -183,8 +187,16 @@ http://185.20.227.163:8080/association/gui/offer<br/>
 &nbsp;    &lt;header/&gt;<br/>
 &lt;/envelope&gt;<br/>
 
+
+Получение всех запросов с определенной номенклатурой
+==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/GetRequestsByNomenclatureUid.java">Тест запроса</a><br/>
+`POST` на `/request/getbynom`
+<br/>
+
 Отправка на центральную площадку предложения товаров и услуг товаров/услуг
 ==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/AddNewOfferToRemoteBase.java">Тест запроса</a><br/>
 `POST` на `/offer/add`
 <br/>
 в теле POST-запроса отправляем XML документ<br/>
@@ -210,5 +222,63 @@ http://185.20.227.163:8080/association/gui/offer<br/>
 
 Получение всех предложений с определенной номенклатурой
 ==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/GetOffersByNomenclatureUid.java">Тест запроса</a><br/>
 `POST` на `/offer/getbynom`
 <br/>
+в теле POST-запроса отправляем XML документ с кодом номенклатуры<br/>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br/>
+&lt;envelope&gt;<br/>
+&nbsp;    &lt;body&gt;<br/>
+&nbsp;&nbsp;        &lt;nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;uid&gt;9f7d5cf3-e139-4ba5-a60d-8eae58c076e1&lt;/uid&gt;<br/>
+&nbsp;&nbsp;        &lt;/nomenclature&gt;<br/>
+&nbsp;    &lt;/body&gt;<br/>
+&nbsp;    &lt;header/&gt;<br/>
+&lt;/envelope&gt;<br/>
+
+Ответ приходит в виде XML документа со списком предложений в конверте<br/>
+<br/>
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br/>
+&lt;envelope&gt;<br/>
+&nbsp;&lt;	body&gt;<br/>
+&nbsp;&nbsp;	&lt;offers&gt;<br/>
+&nbsp;&nbsp;&nbsp;	&lt;offer&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;countOfProduct&gt;1000.0&lt;/countOfProduct&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;dateOfPerformance&gt;2020-01-12T00:00:00+03:00&lt;/dateOfPerformance&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;2&lt;/id&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;createDate&gt;2019-12-14T09:59:52.397+03:00&lt;/createDate&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;4&lt;/id&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;modifyDate&gt;2019-12-14T09:59:52.397+03:00&lt;/modifyDate&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;productName&gt;Стол офисный&lt;/productName&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;uid&gt;058b8777-1bc1-4b9c-8c95-34f0f3bd2623&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;organization&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;adressOfOrganization&gt;г. Казань, ул. Университетская, д. 35&lt;/adressOfOrganization&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;id&gt;4&lt;/id&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;inn&gt;1600000002&lt;/inn&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;kpp&gt;1601001&lt;/kpp&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;nameOfOrganization&gt;Производитель 2&lt;/nameOfOrganization&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	&lt;uid&gt;16cb67df-9b2a-4dad-8410-c6c727b3ea42&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;/organization&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;priceOfProduct&gt;1250.0&lt;/priceOfProduct&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;uid&gt;2b705462-45ef-4012-8488-f394897d3967&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;	&lt;unitCode&gt;piece&lt;/unitCode&gt;<br/>
+&nbsp;&nbsp;&nbsp;	&lt;/offer&gt;<br/>
+&nbsp;&nbsp;	&lt;/offers&gt;<br/>
+&nbsp;	&lt;/body&gt;<br/>
+&nbsp;	&lt;header/&gt;<br/>
+&lt;/envelope&gt;<br/>
+
+Добавление контракта
+==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/AddNewContractToRemoteBase.java">Тест запроса</a><br/>
+`POST` на `/contract/add`
+<br/>
+
+Получение всех контрактов с организацией
+==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/GetContractByOrganizationUid.java">Тест запроса</a><br/>
+`POST` на `/contract/getbyorg`
+<br/>
+

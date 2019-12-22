@@ -2,7 +2,6 @@ package ru.kpfu.icmit.association.model;
 
 import ru.kpfu.icmit.association.model.soap.Content;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
 
 public class NomenclatureList extends Content {
@@ -16,7 +15,6 @@ public class NomenclatureList extends Content {
     public NomenclatureList() {
     }
 
-    //@XmlElementWrapper(name = "nomenclatures")
     @XmlElement(name = "nomenclature")
     public List<Nomenclature> getNomenclatureList() {
         return nomenclatureList;
