@@ -322,27 +322,27 @@ http://185.20.227.163:8080/association/gui/contract<br/>
 `POST` на `/contract/add`
 <br/>
 в теле POST-запроса отправляем XML документ (в структурах: номенклатура, предложение, заявка достаточно указать только код UID)<br/>
-&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-&lt;envelope&gt;
-&nbsp;    &lt;body&gt;
-&nbsp;&nbsp;        &lt;contract&gt;
-&nbsp;&nbsp;&nbsp;            &lt;cost&gt;1240.0&lt;/cost&gt;
-&nbsp;&nbsp;&nbsp;            &lt;count&gt;890.0&lt;/count&gt;
-&nbsp;&nbsp;&nbsp;            &lt;dateOfPerformance&gt;2020-01-12T00:00:00+03:00&lt;/dateOfPerformance&gt;
-&nbsp;&nbsp;&nbsp;            &lt;nomenclature&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;                &lt;uid&gt;058b8777-1bc1-4b9c-8c95-34f0f3bd2623&lt;/uid&gt;
-&nbsp;&nbsp;&nbsp;            &lt;/nomenclature&gt;
-&nbsp;&nbsp;&nbsp;            &lt;offer&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;                &lt;uid&gt;c3f9b9a2-84f6-45c5-b4cf-8be7df2168a5&lt;/uid&gt;
-&nbsp;&nbsp;&nbsp;            &lt;/offer&gt;
-&nbsp;&nbsp;&nbsp;            &lt;request&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;                &lt;uid&gt;69254c5f-a125-45f4-8798-7f5e23894b04&lt;/uid&gt;
-&nbsp;&nbsp;&nbsp;            &lt;/request&gt;
-&nbsp;&nbsp;&nbsp;            &lt;uid&gt;eeb8278b-295c-42d4-bd1e-2d38677bb9e0&lt;/uid&gt;
-&nbsp;&nbsp;        &lt;/contract&gt;
-&nbsp;    &lt;/body&gt;
-&nbsp;    &lt;header/&gt;
-&lt;/envelope&gt;
+&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;<br/>
+&lt;envelope&gt;<br/>
+&nbsp;    &lt;body&gt;<br/>
+&nbsp;&nbsp;        &lt;contract&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;cost&gt;1240.0&lt;/cost&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;count&gt;890.0&lt;/count&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;dateOfPerformance&gt;2020-01-12T00:00:00+03:00&lt;/dateOfPerformance&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;                &lt;uid&gt;058b8777-1bc1-4b9c-8c95-34f0f3bd2623&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;/nomenclature&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;offer&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;                &lt;uid&gt;c3f9b9a2-84f6-45c5-b4cf-8be7df2168a5&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;/offer&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;request&gt;<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;                &lt;uid&gt;69254c5f-a125-45f4-8798-7f5e23894b04&lt;/uid&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;/request&gt;<br/>
+&nbsp;&nbsp;&nbsp;            &lt;uid&gt;eeb8278b-295c-42d4-bd1e-2d38677bb9e0&lt;/uid&gt;<br/>
+&nbsp;&nbsp;        &lt;/contract&gt;<br/>
+&nbsp;    &lt;/body&gt;<br/>
+&nbsp;    &lt;header/&gt;<br/>
+&lt;/envelope&gt;<br/>
 <br/>
 
 
