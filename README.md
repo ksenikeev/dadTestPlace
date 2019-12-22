@@ -86,6 +86,7 @@ http://185.20.227.163:8080/association/gui/offer<br/>
 
 Запрос на добавление номенклатуры:
 ==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/AddNewNomenclatureToRemoteBase.java">Тест запроса</a><br/>
 `POST` на `/nomenclature/add`
 <br/>
 в теле POST-запроса отправляем XML документ<br/>
@@ -118,6 +119,7 @@ http://185.20.227.163:8080/association/gui/offer<br/>
 
 Запрос на получение списка номенклатуры, измененной после определенной даты:
 ==============================
+<a href="https://github.com/ksenikeev/dadTestPlace/blob/master/association/src/test/java/GetNewNomenclatureAfterDate.java">Тест запроса</a><br/>
 `POST` на `/nomenclature/get`
 <br/>
 параметр запроса `datefrom` со значение даты и времени в формате `yyyy-MM-dd'T'HH:mm:ss.SXXX` (URL encoded)
