@@ -10,10 +10,10 @@
 приложение assotiation доступно по адресу http://185.20.227.163:8080/association
 <br/>
 Для контроля содержимого базы данных центральной площадки доступны веб-страницы:<br/>
-http://localhost:8080/association/gui/nomenclature<br/>
-http://localhost:8080/association/gui/organization<br/>
-http://localhost:8080/association/gui/request<br/>
-http://localhost:8080/association/gui/offer<br/>
+http://185.20.227.163:8080/association/gui/nomenclature<br/>
+http://185.20.227.163:8080/association/gui/organization<br/>
+http://185.20.227.163:8080/association/gui/request<br/>
+http://185.20.227.163:8080/association/gui/offer<br/>
 
 
 Структура данных
@@ -206,4 +206,7 @@ http://localhost:8080/association/gui/offer<br/>
 &nbsp;    &lt;header/&gt;<br/>
 &lt;/envelope&gt;<br/>
 
-
+Получение всех предложений с определенной номенклатурой
+==============================
+`POST` на `/offer/getbynom`
+<br/>

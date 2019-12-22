@@ -1,5 +1,3 @@
-package ru.kpfu.icmit.client4;
-
 import ru.kpfu.icmit.association.model.Nomenclature;
 import ru.kpfu.icmit.association.model.Offer;
 import ru.kpfu.icmit.association.model.Organization;
@@ -7,13 +5,11 @@ import ru.kpfu.icmit.association.model.Request;
 import ru.kpfu.icmit.association.model.soap.Body;
 import ru.kpfu.icmit.association.model.soap.Envelope;
 import ru.kpfu.icmit.association.model.soap.Header;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -23,24 +19,19 @@ public class SOAPMain {
 
     public static void main(String[] args) {
 
-        SOAPSender sender = new SOAPSender();
+        SOAPSender sender = new SOAPSender(SOAPSender.LOCAL_URL);
 
         createEnvelopeRequest();
-        sender.sendFile(new File("request.xml"), "request/add");
+        //sender.sendFile(new File("request.xml"), "request/add");
 
         createEnvelopeOffer();
-        sender.sendFile(new File("offer.xml"), "offer/add");
+        //sender.sendFile(new File("offer.xml"), "offer/add");
 
-        createEnveopeNomenclature("Уголь антрацит");
-        sender.sendFile(new File("nomenclature.xml"), "nomenclature/add");
-        List<Nomenclature> lst = sender.getNomenclatures();
-        lst.forEach(System.out::println);
+        //List<Nomenclature> lst = sender.getNomenclatures();
+        //lst.forEach(System.out::println);
 
         createEnvelopeOrganization();
-        sender.sendFile(new File("organization.xml"), "organization/add");
-
-        createEnvelopeRequest();
-        sender.sendFile(new File("request.xml"), "request/add");
+        //sender.sendFile(new File("organization.xml"), "organization/add");
     }
 
 

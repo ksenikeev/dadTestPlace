@@ -1,6 +1,8 @@
 package ru.kpfu.icmit.association.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ru.kpfu.icmit.association.model.Nomenclature;
@@ -10,6 +12,8 @@ import ru.kpfu.icmit.association.model.soap.Body;
 import ru.kpfu.icmit.association.model.soap.Envelope;
 import ru.kpfu.icmit.association.repository.OrganizationRepository;
 import ru.kpfu.icmit.association.service.NomenclatureService;
+
+import javax.servlet.http.HttpServletResponse;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,14 +49,17 @@ public class NomenclatureController {
 
     @RequestMapping(value = "/get", method = RequestMethod.POST)
     @ResponseBody
-    public Envelope getNomenclature(@RequestParam(name = "datefrom") String datefrom) {
+    public Envelope getNomenclature(@RequestParam(name = "datefrom") String datefrom,
+                                    HttpServletResponse response) {
 
+        System.out.println("datefrom="+datefrom);
         Date date = null;
         try {
             date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SXXX").
-                    parse("2019-01-01T00:00:00.0+03:00");
-        } catch (ParseException e) {
+                        parse(datefrom);
+        } catch (ParseException | NullPointerException e) {
             e.printStackTrace();
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
 
         List<Nomenclature> nomenclatures = nomenclatureService.getNomenclature(date);

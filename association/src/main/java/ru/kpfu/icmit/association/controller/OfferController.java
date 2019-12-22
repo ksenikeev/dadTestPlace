@@ -51,20 +51,20 @@ public class OfferController {
         }
     }
 
-    @RequestMapping(value = "/get", method = RequestMethod.POST)
+    @RequestMapping(value = "/getbynom", method = RequestMethod.POST)
     @ResponseBody
     public List<Offer> getOffer(@RequestBody Envelope envelope) {
 
-        List<Offer> tmp = null;
+        List<Offer> offerList = null;
         System.out.println("envelope: " + envelope);
 
         if (envelope != null) {
             Nomenclature nomenclature = (Nomenclature) envelope.getBody().getContent();
 
-            tmp = offerRepository.findByNomenclatureUid(nomenclature.getUid());
+            offerList = offerRepository.findByNomenclatureUid(nomenclature.getUid());
 
         }
-        return tmp;
+        return offerList;
     }
 
 }
