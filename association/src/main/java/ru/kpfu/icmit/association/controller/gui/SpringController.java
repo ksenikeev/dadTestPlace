@@ -4,18 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import ru.kpfu.icmit.association.model.Nomenclature;
-import ru.kpfu.icmit.association.model.Offer;
-import ru.kpfu.icmit.association.model.Organization;
-import ru.kpfu.icmit.association.model.Request;
-import ru.kpfu.icmit.association.service.NomenclatureService;
-import ru.kpfu.icmit.association.service.OfferService;
-import ru.kpfu.icmit.association.service.OrganizationService;
-import ru.kpfu.icmit.association.service.RequestService;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import ru.kpfu.icmit.association.model.*;
+import ru.kpfu.icmit.association.service.*;
 import java.util.List;
 
 @Controller
@@ -34,6 +24,9 @@ public class SpringController {
 
     @Autowired
     private OfferService offerService;
+
+    @Autowired
+    private ContractService contractService;
 
     @RequestMapping(value = "/nomenclature")
     public String getNomenclatureList(@ModelAttribute("model") ModelMap model) {
@@ -73,5 +66,15 @@ public class SpringController {
         model.addAttribute("offers", offers);
 
         return "/offer";
+    }
+
+    @RequestMapping(value = "/contract")
+    public String getContractList(@ModelAttribute("model") ModelMap model)
+    {
+        List<Contract> contracts = contractService.findAll();
+
+        model.addAttribute("contracts", contracts);
+
+        return "/contract";
     }
 }
