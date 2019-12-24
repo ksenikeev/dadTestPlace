@@ -23,11 +23,11 @@
 		<#list model["contracts"] as contract>
 			<tr>
 			<td>${contract.uid}</td>
-			<td>${contract.offer.organization.nameOfOrganization}</td>
-			<td>${contract.request.organization.nameOfOrganization}</td>
-			<td>${contract.nomenclature.productName}</td>
-			<td>${contract.nomenclature.uid}</td>
-			<td>${contract.countOfProduct}</td>
+			<td><#if contract.offer??> ${contract.offer.organization.nameOfOrganization}</#if></td>
+			<td><#if contract.request??>${contract.request.organization.nameOfOrganization}</#if></td>
+			<td><#if contract.nomenclature??>${contract.nomenclature.productName}</#if></td>
+			<td><#if contract.nomenclature??>${contract.nomenclature.uid}</#if></td>
+			<td>${contract.count}</td>
 			</tr>
 		</#list>
 		</tbody>

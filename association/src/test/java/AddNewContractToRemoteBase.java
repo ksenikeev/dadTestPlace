@@ -13,8 +13,8 @@ public class AddNewContractToRemoteBase {
 
     public static void main(String[] args) {
 
-        //SOAPSender sender = new SOAPSender(SOAPSender.LOCAL_URL); //Запрос к локальному серверу
-        SOAPSender sender = new SOAPSender(SOAPSender.REMOTE_URL);  //Запрос к удаленному серверу
+        SOAPSender sender = new SOAPSender(SOAPSender.LOCAL_URL); //Запрос к локальному серверу
+        //SOAPSender sender = new SOAPSender(SOAPSender.REMOTE_URL);  //Запрос к удаленному серверу
 
         Envelope envelope = new Envelope();
         Header header = new Header();

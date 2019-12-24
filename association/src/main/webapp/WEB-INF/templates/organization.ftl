@@ -14,12 +14,14 @@
 
 <table>
 	<th>ID</th>
+	<th>UID</th>
 	<th>Наименование</th>
 	<th>ИНН</th>
 	<tbody>
 	<#list model["organizations"] as organization>
 		<tr>
 		<td>${organization.id}</td>
+		<td>${organization.uid}</td>
 		<td>${organization.nameOfOrganization}</td>
 		<td>${organization.inn}</td>
 		</tr>

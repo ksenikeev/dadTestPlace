@@ -22,9 +22,9 @@
 		<#list model["offers"] as offer>
 			<tr>
 			<td>${offer.uid}</td>
-			<td>${offer.organization.nameOfOrganization}</td>
-			<td>${offer.nomenclature.productName}</td>
-			<td>${offer.nomenclature.uid}</td>
+			<td><#if offer.organization??>${offer.organization.nameOfOrganization}</#if></td>
+			<td><#if offer.nomenclature??>${offer.nomenclature.productName}</#if></td>
+			<td><#if offer.nomenclature??>${offer.nomenclature.uid}</#if></td>
 			<td>${offer.countOfProduct}</td>
 			</tr>
 		</#list>

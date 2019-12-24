@@ -16,13 +16,15 @@
 		<th>UID</th>
 		<th>Наименование организации</th>
 		<th>Номенклатура</th>
+		<th>Номенклатура UID</th>
 		<th>Количество</th>
 		<tbody>
 		<#list model["requests"] as request>
 			<tr>
 			<td>${request.uid}</td>
-			<td>${request.organization.nameOfOrganization}</td>
-			<td>${request.nomenclature.productName}</td>
+			<td><#if request.organization??>${request.organization.nameOfOrganization}</#if></td>
+			<td><#if request.nomenclature??>${request.nomenclature.productName}</#if></td>
+			<td><#if request.nomenclature??>${request.nomenclature.uid}</#if></td>
 			<td>${request.countOfProduct}</td>
 			</tr>
 		</#list>

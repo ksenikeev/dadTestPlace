@@ -11,8 +11,8 @@ public class AddNewOrganizationToRemoteBase {
 
     public static void main(String[] args) {
 
-        //SOAPSender sender = new SOAPSender(SOAPSender.LOCAL_URL);
-        SOAPSender sender = new SOAPSender(SOAPSender.REMOTE_URL);
+        SOAPSender sender = new SOAPSender(SOAPSender.LOCAL_URL);
+        //SOAPSender sender = new SOAPSender(SOAPSender.REMOTE_URL);
 
         Envelope envelope = new Envelope();
         Header header = new Header();
